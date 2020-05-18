@@ -12,4 +12,24 @@ public class Demo2 {
         this.num--;
         Demo2.total++;
     }
+
+    public static <T extends GrandFather> void demo(T a) {
+        ((GrandFather)a).shut();
+    }
+
+    public static void main(String[] args) {
+        demo(new GrandSon());
+    }
+}
+
+class GrandFather {
+    public void shut() {
+        System.out.println("GrandFather");
+    }
+}
+
+class GrandSon extends GrandFather {
+    public void shut() {
+        System.out.println("GrandSon");
+    }
 }
